@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeerFlow Research Agent — AY Automate</title>
+    <meta name="description" content="Long-horizon research agent with sub-agents, memory, and context engineering. Inspired by ByteDance's DeerFlow.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand"><span class="brand-icon">🦌</span><span class="brand-text">DeerFlow Research</span><span class="brand-badge">DeerFlow</span></a>
+            <div class="nav-links">
+                <a href="#architecture">Architecture</a>
+                <a href="#sub-agents">Sub-Agents</a>
+                <a href="#setup">Setup</a>
+                <a href="#projects">Projects</a>
+                <a href="https://github.com/nagarjunak-pixel/deerflow-research-agent" class="nav-btn" target="_blank">⭐ GitHub</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">AY Automate · Open Data Science</div>
+            <h1>DeerFlow<br><span class="gradient-text">Research Agent</span></h1>
+            <p class="hero-subtitle">
+                Long-horizon research with <strong>sub-agents, persistent memory</strong>, and <strong>context engineering</strong> — 
+                the open-source "agents as an organisation" pattern from ByteDance's ~70.7k-star DeerFlow.
+            </p>
+            <div class="hero-actions">
+                <a href="#setup" class="btn btn-primary"><span>🚀</span> Get Started</a>
+                <a href="https://github.com/nagarjunak-pixel/deerflow-research-agent" class="btn btn-secondary" target="_blank"><span>📦</span> View Source</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-value">3</span><span class="stat-label">Sub-Agents</span></div>
+                <div class="stat"><span class="stat-value">💾</span><span class="stat-label">Persistent Memory</span></div>
+                <div class="stat"><span class="stat-value">♻</span><span class="stat-label">Session Resume</span></div>
+                <div class="stat"><span class="stat-value">📊</span><span class="stat-label">Auto Reports</span></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="architecture" class="section">
+        <div class="container">
+            <h2 class="section-title">"Agents as an Organisation"</h2>
+            <p class="section-subtitle">Each sub-agent has a specialized role, coordinated by the orchestrator</p>
+            <div class="pipeline-diagram">
+                <div class="pipeline-stage" data-stage="orch">
+                    <div class="stage-icon">🦌</div>
+                    <div class="stage-content">
+                        <h3>Research Orchestrator</h3>
+                        <p>Manages the full pipeline, coordinates sub-agents, handles session persistence</p>
+                        <code>research_agent.py</code>
+                    </div>
+                    <div class="stage-checkpoint">Session Manager</div>
+                </div>
+            </div>
+            <div class="pipeline-diagram" style="margin-top:40px">
+                <div class="pipeline-stage" data-stage="1">
+                    <div class="stage-icon">📋</div>
+                    <div class="stage-content">
+                        <h3>Planner</h3>
+                        <p>Decomposes topics into 2-6 sub-tasks based on depth</p>
+                        <code>sub_agents/planner.py</code>
+                    </div>
+                </div>
+                <div class="pipeline-arrow"><svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg></div>
+                <div class="pipeline-stage" data-stage="2">
+                    <div class="stage-icon">🔍</div>
+                    <div class="stage-content">
+                        <h3>Searcher</h3>
+                        <p>DuckDuckGo web search with mock fallback</p>
+                        <code>sub_agents/searcher.py</code>
+                    </div>
+                </div>
+                <div class="pipeline-arrow"><svg viewBox="0 0 24 24" width="32" height="32"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg></div>
+                <div class="pipeline-stage" data-stage="3">
+                    <div class="stage-icon">🧠</div>
+                    <div class="stage-content">
+                        <h3>Analyzer</h3>
+                        <p>Synthesizes findings into structured markdown reports</p>
+                        <code>sub_agents/analyzer.py</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sub-agents" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Sub-Agent Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon">📋</div><h3>Planner Agent</h3><p>Decomposes research questions into structured sub-tasks. Supports quick (2), standard (4), and deep (6+) research depths.</p></div>
+                <div class="feature-card"><div class="feature-icon">🔍</div><h3>Searcher Agent</h3><p>Real web search via DuckDuckGo with graceful mock fallback. Returns structured findings with sources and timestamps.</p></div>
+                <div class="feature-card"><div class="feature-icon">🧠</div><h3>Analyzer Agent</h3><p>Synthesizes all findings into a professional markdown report with executive summary, per-topic analysis, and methodology.</p></div>
+                <div class="feature-card"><div class="feature-icon">💾</div><h3>Context Store</h3><p>JSON-based persistent memory. Store/recall any context across sessions. Resume interrupted research from any checkpoint.</p></div>
+                <div class="feature-card"><div class="feature-icon">♻</div><h3>Session Resume</h3><p>Pick up where you left off. The agent detects partial sessions and resumes from the last completed phase.</p></div>
+                <div class="feature-card"><div class="feature-icon">📊</div><h3>Auto Reports</h3><p>Generates structured markdown reports with executive summary, source citations, and methodology documentation.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="setup" class="section">
+        <div class="container">
+            <h2 class="section-title">Quick Start</h2>
+            <div class="setup-steps">
+                <div class="step"><div class="step-number">1</div><div class="step-content"><h3>Clone & Install</h3><div class="code-block"><div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><pre><code>git clone https://github.com/nagarjunak-pixel/deerflow-research-agent.git
+cd deerflow-research-agent
+pip install -r requirements.txt</code></pre></div></div></div>
+                <div class="step"><div class="step-number">2</div><div class="step-content"><h3>Run Research</h3><div class="code-block"><div class="code-header"><span>Terminal</span><button class="copy-btn" onclick="copyCode(this)">📋 Copy</button></div><pre><code># Quick research
+python research_agent.py "AI regulation in India"
+
+# Deep research
+python research_agent.py --topic "Telugu tech startups" --depth deep
+
+# Resume session
+python research_agent.py --resume abc12345</code></pre></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">AY Automate · All Projects</h2>
+            <div class="projects-grid">
+                <a href="LANGGRAPH_NETLIFY_URL" class="project-card project-link"><div class="project-icon">📺</div><h3>LangGraph LocalAI TV</h3><p>3-stage news pipeline with checkpoints.</p><div class="project-tech">LangGraph · Python</div></a>
+                <a href="CREWAI_NETLIFY_URL" class="project-card project-link"><div class="project-icon">📰</div><h3>CrewAI Telugu Newsroom</h3><p>Multi-agent newsroom crew.</p><div class="project-tech">CrewAI · Python</div></a>
+                <a href="FIRECRAWL_NETLIFY_URL" class="project-card project-link"><div class="project-icon">🔥</div><h3>Firecrawl NEXUS RSS</h3><p>Web scraping aggregator.</p><div class="project-tech">Firecrawl · Python</div></a>
+                <div class="project-card project-active"><div class="project-badge">Current</div><div class="project-icon">🦌</div><h3>DeerFlow Research Agent</h3><p>Long-horizon research with sub-agents and memory.</p><div class="project-tech">DeerFlow · Python</div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-brand"><span class="brand-icon">🦌</span><span>DeerFlow Research Agent</span></div><div class="footer-links"><a href="https://github.com/nagarjunak-pixel/deerflow-research-agent" target="_blank">GitHub</a><span class="footer-sep">·</span><a href="https://github.com/nagarjunak-pixel" target="_blank">AY Automate</a><span class="footer-sep">·</span><span>Surya Agentic Academy</span></div><div class="footer-copy">© 2026 AY Automate · MIT License</div></div></div></footer>
+    <script src="script.js"></script>
+</body>
+</html>
